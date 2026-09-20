@@ -1,76 +1,55 @@
-# Representational Invariance and Fairness Criteria: RQ6 and RQ8 experiments
+# Marginal vs. Conditional Representation Alignment
 
-Anonymous code release accompanying the paper submission. It contains the code, dataset
-preparation records, seeds and per-run configurations for the two experiment families
-reported in the paper:
+Code, configs and seeds for the two experiments in the paper:
 
-* **RQ6, tabular Fair Normalizing Flows (FNF).** Marginal (Z ⊥ A) and class-conditional
-  (Z ⊥ A | Y or Z ⊥ A | Ŷ) FNF encoders on seven tabular fairness datasets under four
-  prevalence conditions, evaluated with an independent probe battery, fairness criteria
-  (DP, EOpp, EOdds), score-distribution distances and calibration-bias diagnostics.
-* **RQ8, CheXpert with frozen DenseNet-121 features.** Edema and Cardiomegaly with a 50 %
-  female-positive deletion in every patient-disjoint split; FNF, MMD and adversarial erasers
-  against matched ERM references, plus a deployable class-conditional FNF extension.
+| Experiment | Criterion | Tabular (7 datasets) | CheXpert (Edema, Cardiomegaly) |
+|---|---|---|---|
+| **Marginal alignment** | Z ⊥ A | `experiments/rq6_fnf/run.py` | `experiments/rq8_final/` (FNF, MMD, adversarial vs. ERM) |
+| **Conditional alignment** | Z ⊥ A \| Y | `experiments/rq6_fnf/run.py --conditional` | `experiments/rq8_conditional/` (class-conditional FNF) |
 
-Everything else from the wider project (RQ1 to RQ5, RQ7) is excluded except the shared
-helper modules that RQ6/RQ8 import.
+Both are evaluated with the same independent probe battery, fairness metrics (DP, EOpp, EOdds),
+calibration-bias diagnostics and paired cluster bootstrap.
 
-## Layout
+## Where is what
 
 ```
-experiments/rq6_fnf/          RQ6: data.py (cohorts + conditions), fnf.py (flows, MADE, KL),
-                              run.py (training shards), evaluate.py (probes, fairness,
-                              calibration), calibration.py / calibration_bias.py (Cox slope
-                              and intercept), aggregate.py, status.py, submit.py,
-                              *.sbatch, figure and report scripts, test_rq6.py
-experiments/rq8_final/        RQ8: prepare.py (patient-disjoint splits + shift), baseline.py
-                              (DenseNet-121 ERM, frozen features), methods.py (FNF, MMD,
-                              adversarial erasers), train.py, probes.py, evaluate.py, worker.py,
-                              submit.py, aggregate.py, smoke.py, tests.py, METHODOLOGY.md
-experiments/rq8_conditional/  RQ8 extension: class-conditional FNF on the same cohorts and
-                              frozen features; calibration.py, backfill.py, tests.py
-experiments/rq5_sweep/, rq5_guarantees/, rq5_removal/, rq4_ptbxl/
-                              Shared utilities imported by RQ6/RQ8 (dataset loaders and
-                              splitter, probe battery, metrics, bootstrap audit)
-src/                          Shared metrics, calibration, probes, backbone and heads
-configs/rq6/                  protocol.json, submission.json (job records), per-dataset
-                              prepared/<dataset>/{manifest.json, conditions.csv, support.csv},
-                              run_configs.csv (all 2,901 run configurations)
-configs/rq8/shift50_v1/       configurations.json (54 erasers + 6 ERM), submission.json,
-                              environment.txt (frozen pip environment), source_hashes.json,
-                              prepared/<pathology>/{complete.json, support.csv, splits.csv.gz},
-                              <pathology>/seed<k>/{baseline,runs/*}/config.json, shard_summary.json
-configs/rq8/conditional_shift50_v1/
-                              configurations.json (18 fits), submission.json, input_manifest.json,
-                              preflight_validation.json, per-run config.json
+experiments/rq6_fnf/           tabular experiments (both criteria)
+  data.py                        build cohorts + prevalence conditions (natural, equalized, shift50, shift75)
+  fnf.py                         flows, MADE densities, KL / TV objectives
+  run.py                         train one shard   (--conditional → conditional alignment)
+  evaluate.py                    probes, fairness, calibration for one shard
+  aggregate.py                   CSV tables
+  calibration.py                 Cox calibration slope / intercept
+  train.sbatch, conditional.sbatch, evaluate.sbatch, submit.py   cluster jobs
+  test_rq6.py                    unit tests
+experiments/rq8_final/         CheXpert, marginal alignment
+  prepare.py                     patient-disjoint splits + 50 % female-positive deletion
+  baseline.py                    DenseNet-121 ERM, frozen features
+  methods.py / train.py          FNF, MMD, adversarial erasers
+  evaluate.py / probes.py        evaluation
+  worker.py, run.sbatch, submit.py, aggregate.py, smoke.py, tests.py
+  METHODOLOGY.md                 fixed protocol
+experiments/rq8_conditional/   CheXpert, conditional alignment (same splits and features)
+  train.py, methods.py, evaluate.py, worker.py, backfill.py (calibration), aggregate.py, tests.py
+experiments/rq4_ptbxl/, rq5_*/  shared helpers (loaders, splitter, probes, metrics, bootstrap)
+src/                           shared metrics, calibration, probes, model heads
+
+configs/rq6/                   tabular
+  protocol.json                  grids: datasets, seeds, conditions, γ, MADE widths, feature sets
+  prepared/<dataset>/            manifest.json (source, SHA-256, split seeds, features), conditions.csv (group sizes, prevalences)
+  run_configs.csv                every run configuration (2,901 rows)
+  submission.json                job records
+configs/rq8/shift50_v1/        CheXpert, marginal
+  configurations.json            54 erasers + 6 ERM (method, dim, γ / ratio, seed)
+  prepared/<pathology>/          complete.json (partition seed 42, shift seed 20260914, hashes),
+                                 splits.csv.gz (image path → patient, sex, label, split)
+  <pathology>/seed<k>/           config.json of the baseline and of every run
+  environment.txt                frozen pip environment
+configs/rq8/conditional_shift50_v1/   CheXpert, conditional: configurations.json (18 fits), per-run config.json
 ```
 
-The two experiment READMEs, `experiments/rq6_fnf/README.md` and
-`experiments/rq8_final/README.md` (with `METHODOLOGY.md`), describe the protocols, the
-hyper-parameter grids and the change log of the runs.
-
-## Datasets, splits and seeds
-
-Datasets are not redistributed. Placeholder paths in the code are `/path/to/...`; the
-results root is `/path/to/results` (`RQ8_BASE`, `RQ8C_BASE` and `RQ6_CODE_ROOT` environment
-variables override it where supported).
-
-**RQ6.** `configs/rq6/prepared/<dataset>/manifest.json` records the source, row count,
-SHA-256 of the prepared cohort, the attribute mapping, feature sets, quantile binning and
-the fixed per-split condition seeds. `conditions.csv` lists the group sizes and prevalences
-of every (condition, split). Model seeds are 42, 123 and 456 on fixed splits (60/10/10/20,
-unit-disjoint). `run_configs.csv` flattens the `config.json` of every one of the 2,901 fits
-(dataset, seed, condition, variant, γ, MADE width, feature set, conditioning variable,
-optimiser settings).
-
-**RQ8.** `configs/rq8/shift50_v1/prepared/<pathology>/complete.json` records the partition
-seed (42), the shift seed (20260914), the deletion rule and the SHA-256 of every split file.
-`splits.csv.gz` gives, for each CheXpert image path, its patient id, sex, label, uncertainty
-flag and split (train, validation, probe_validation, selection, test, or removed_by_shift), so
-the exact cohorts can be reconstructed from the public CheXpert-v1.0-small release without
-re-running the sampler. Model seeds 42, 123, 456. Each `config.json` under
-`<pathology>/seed<k>/` holds the eraser method, latent dimension, γ or ratio, and the
-DenseNet-121 training settings of the matched ERM reference.
+Seeds: 42, 123, 456 for all models. Splits are fixed (seeds recorded in the manifests above).
+Datasets are not included; replace `/path/to/...` in the code or set `RQ8_BASE` / `RQ8C_BASE`.
 
 ## Setup
 
@@ -80,31 +59,28 @@ pip install -r requirements.txt
 python -m unittest experiments.rq6_fnf.test_rq6 experiments.rq8_final.tests experiments.rq8_conditional.tests
 ```
 
-## Running
+## Run
 
-RQ6 (run from the repository root):
+Tabular, from the repository root:
 
 ```bash
-python experiments/rq6_fnf/data.py                                  # build cohorts and conditions
-python experiments/rq6_fnf/run.py --dataset adult --condition shift50 --smoke --allow-cpu
-python experiments/rq6_fnf/run.py --index 0                         # one training shard
-python experiments/rq6_fnf/run.py --index 0 --conditional           # class-conditional variant
-python experiments/rq6_fnf/evaluate.py --index 0
-python experiments/rq6_fnf/aggregate.py
+python experiments/rq6_fnf/data.py                        # 1. cohorts and conditions
+python experiments/rq6_fnf/run.py --index 0               # 2. marginal alignment, shard 0
+python experiments/rq6_fnf/run.py --index 0 --conditional #    conditional alignment, shard 0
+python experiments/rq6_fnf/evaluate.py --index 0          # 3. evaluate the shard
+python experiments/rq6_fnf/aggregate.py                   # 4. tables
 ```
 
-RQ8:
+CheXpert:
 
 ```bash
-python experiments/rq8_final/prepare.py                             # patient-disjoint shifted splits
-python experiments/rq8_final/smoke.py --audit                       # synthetic end-to-end check
-python experiments/rq8_final/worker.py --index 0                    # one (pathology, seed) shard
+python experiments/rq8_final/prepare.py                   # 1. splits with shift
+python experiments/rq8_final/worker.py --index 0          # 2. marginal: ERM + erasers for one (pathology, seed)
 python experiments/rq8_final/aggregate.py
-python -m experiments.rq8_conditional.worker --index 0              # class-conditional FNF extension
-python -m experiments.rq8_conditional.backfill                      # calibration-bias diagnostics
+python -m experiments.rq8_conditional.worker --index 0    # 3. conditional: reuses the splits and features
+python -m experiments.rq8_conditional.backfill            #    calibration diagnostics
 python -m experiments.rq8_conditional.aggregate
 ```
 
-The `*.sbatch` files are the Slurm array jobs used for the reported runs; `submit.py` in each
-package snapshots the source, checks the smoke tests and launches the arrays. Adjust the
-`#SBATCH` headers and paths for your cluster.
+Shard indices follow `configs/*/configurations.json` and `configs/rq6/protocol.json`.
+The `*.sbatch` files are the Slurm arrays used for the reported runs.
