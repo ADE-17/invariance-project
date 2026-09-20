@@ -1,0 +1,37 @@
+{
+  "submitted_utc": "2026-09-18T15:02:36.099979+00:00",
+  "sweep_job": "571208",
+  "smoke_job": "571207",
+  "max_concurrent_gpus": 8,
+  "cpus_per_job": 8,
+  "memory_per_job": "48G",
+  "erasure_fits": 18,
+  "reused_erm_references": 6,
+  "condition": "shift50",
+  "source_snapshot": "/path/to/results/rq8/conditional_shift50_v1/source_snapshot",
+  "pathology": [
+    "Edema",
+    "Cardiomegaly"
+  ],
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "gamma": [
+    0.05,
+    0.5,
+    0.95
+  ],
+  "calibration_job": "571209",
+  "collection_job": "571210",
+  "smoke_time_limit_override_minutes": 5,
+  "cpu_integration_smoke_passed": true,
+  "reference_calibration_complete": true,
+  "compute_estimate_hours_with_eight_gpus": [
+    3,
+    6
+  ],
+  "scheduler_smoke_start_estimate_local": "2026-09-20T16:44:27+02:00",
+  "queue_estimate_recorded_local": "2026-09-18T17:05:00+02:00"
+}

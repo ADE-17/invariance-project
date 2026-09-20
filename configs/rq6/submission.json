@@ -1,0 +1,506 @@
+{
+ "training_job": "561197",
+ "code_snapshot": "/path/to/results/rq6/fnf_v1/source_snapshot",
+ "submitted_utc": "2026-09-11T13:41:36.466205+00:00",
+ "expected_fits": 864,
+ "evaluation_job": "561198",
+ "resubmissions": [
+  {
+   "training_job": "563002",
+   "code_snapshot": "/path/to/results/rq6/fnf_v1/source_snapshot",
+   "shards": "12-23",
+   "submitted_utc": "2026-09-12T19:01:28.734834+00:00",
+   "expected_fits": 864,
+   "note": "Health resubmission after fixing symmetric_kl log-det sign (v1 Health outputs archived under archive/)",
+   "evaluation_job": "563003",
+   "cancelled_utc": "2026-09-14",
+   "cancel_note": "Health seed456 shift50/shift75 training cancelled by user request (Health not needed further); shards 12-21 complete, 22-23 partial and unevaluated."
+  },
+  {
+   "training_job": "564752",
+   "code_snapshot": "/path/to/results/rq6/fnf_v1/source_snapshot_v3",
+   "shards": "24-83",
+   "submitted_utc": "2026-09-14T10:53:58.363018+00:00",
+   "expected_fits": 2664,
+   "note": "Five additional categorical-FNF datasets (compas, lawschool, crime, dutch, credit), shards 24-83",
+   "evaluation_job": "564753"
+  }
+ ],
+ "conditional_trial": [
+  {
+   "snapshot": "/path/to/results/rq6/fnf_v1/source_snapshot_v4",
+   "jobs": [
+    {
+     "job": "565429",
+     "dataset": "adult",
+     "seed": 42,
+     "condition": "natural"
+    },
+    {
+     "job": "565430",
+     "dataset": "adult",
+     "seed": 42,
+     "condition": "equalized"
+    },
+    {
+     "job": "565431",
+     "dataset": "adult",
+     "seed": 42,
+     "condition": "shift50"
+    },
+    {
+     "job": "565432",
+     "dataset": "adult",
+     "seed": 42,
+     "condition": "shift75"
+    },
+    {
+     "job": "565433",
+     "dataset": "adult",
+     "seed": 123,
+     "condition": "natural"
+    },
+    {
+     "job": "565434",
+     "dataset": "adult",
+     "seed": 123,
+     "condition": "equalized"
+    },
+    {
+     "job": "565435",
+     "dataset": "adult",
+     "seed": 123,
+     "condition": "shift50"
+    },
+    {
+     "job": "565436",
+     "dataset": "adult",
+     "seed": 123,
+     "condition": "shift75"
+    },
+    {
+     "job": "565437",
+     "dataset": "dutch",
+     "seed": 42,
+     "condition": "natural"
+    },
+    {
+     "job": "565438",
+     "dataset": "dutch",
+     "seed": 42,
+     "condition": "equalized"
+    },
+    {
+     "job": "565439",
+     "dataset": "dutch",
+     "seed": 42,
+     "condition": "shift50"
+    },
+    {
+     "job": "565440",
+     "dataset": "dutch",
+     "seed": 42,
+     "condition": "shift75"
+    },
+    {
+     "job": "565441",
+     "dataset": "dutch",
+     "seed": 123,
+     "condition": "natural"
+    },
+    {
+     "job": "565442",
+     "dataset": "dutch",
+     "seed": 123,
+     "condition": "equalized"
+    },
+    {
+     "job": "565443",
+     "dataset": "dutch",
+     "seed": 123,
+     "condition": "shift50"
+    },
+    {
+     "job": "565444",
+     "dataset": "dutch",
+     "seed": 123,
+     "condition": "shift75"
+    }
+   ],
+   "note": "Class-conditional FNF trial: cond-y (oracle) and cond-yhat (predicted class), gamma {0.5,1}, MADE 50, selected feature sets; adult+dutch, seeds 42/123",
+   "cancelled_gpu_jobs": "565429-565444 (pending on priority)",
+   "cpu_jobs": [
+    {
+     "job": "565448",
+     "dataset": "adult",
+     "seed": 42,
+     "condition": "natural"
+    },
+    {
+     "job": "565449",
+     "dataset": "adult",
+     "seed": 42,
+     "condition": "equalized"
+    },
+    {
+     "job": "565450",
+     "dataset": "adult",
+     "seed": 42,
+     "condition": "shift50"
+    },
+    {
+     "job": "565451",
+     "dataset": "adult",
+     "seed": 42,
+     "condition": "shift75"
+    },
+    {
+     "job": "565452",
+     "dataset": "adult",
+     "seed": 123,
+     "condition": "natural"
+    },
+    {
+     "job": "565453",
+     "dataset": "adult",
+     "seed": 123,
+     "condition": "equalized"
+    },
+    {
+     "job": "565454",
+     "dataset": "adult",
+     "seed": 123,
+     "condition": "shift50"
+    },
+    {
+     "job": "565455",
+     "dataset": "adult",
+     "seed": 123,
+     "condition": "shift75"
+    },
+    {
+     "job": "565456",
+     "dataset": "dutch",
+     "seed": 42,
+     "condition": "natural"
+    },
+    {
+     "job": "565457",
+     "dataset": "dutch",
+     "seed": 42,
+     "condition": "equalized"
+    },
+    {
+     "job": "565458",
+     "dataset": "dutch",
+     "seed": 42,
+     "condition": "shift50"
+    },
+    {
+     "job": "565459",
+     "dataset": "dutch",
+     "seed": 42,
+     "condition": "shift75"
+    },
+    {
+     "job": "565460",
+     "dataset": "dutch",
+     "seed": 123,
+     "condition": "natural"
+    },
+    {
+     "job": "565461",
+     "dataset": "dutch",
+     "seed": 123,
+     "condition": "equalized"
+    },
+    {
+     "job": "565462",
+     "dataset": "dutch",
+     "seed": 123,
+     "condition": "shift50"
+    },
+    {
+     "job": "565463",
+     "dataset": "dutch",
+     "seed": 123,
+     "condition": "shift75"
+    }
+   ],
+   "partition": "cyclopes, 8 CPUs each"
+  },
+  {
+   "snapshot": "/path/to/results/rq6/fnf_v1/source_snapshot_v4",
+   "submitted": "2026-09-18T16:54:45",
+   "note": "Class-conditional FNF extension to all five paper datasets and three seeds: crime/credit/compas seeds 42/123/456 and adult/dutch seed 456; cond-y and cond-yhat, gamma {0.5,1}, MADE 50, report-selected feature sets",
+   "partition": "gpu, 1 GPU + 4 CPUs each, array 0-43 capped at 6 concurrent",
+   "array_job": "571199",
+   "jobs": [
+    {
+     "job": "571199_0",
+     "dataset": "adult",
+     "seed": 456,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_1",
+     "dataset": "adult",
+     "seed": 456,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_2",
+     "dataset": "adult",
+     "seed": 456,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_3",
+     "dataset": "adult",
+     "seed": 456,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_4",
+     "dataset": "dutch",
+     "seed": 456,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_5",
+     "dataset": "dutch",
+     "seed": 456,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_6",
+     "dataset": "dutch",
+     "seed": 456,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_7",
+     "dataset": "dutch",
+     "seed": 456,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_8",
+     "dataset": "crime",
+     "seed": 42,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_9",
+     "dataset": "crime",
+     "seed": 42,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_10",
+     "dataset": "crime",
+     "seed": 42,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_11",
+     "dataset": "crime",
+     "seed": 42,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_12",
+     "dataset": "crime",
+     "seed": 123,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_13",
+     "dataset": "crime",
+     "seed": 123,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_14",
+     "dataset": "crime",
+     "seed": 123,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_15",
+     "dataset": "crime",
+     "seed": 123,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_16",
+     "dataset": "crime",
+     "seed": 456,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_17",
+     "dataset": "crime",
+     "seed": 456,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_18",
+     "dataset": "crime",
+     "seed": 456,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_19",
+     "dataset": "crime",
+     "seed": 456,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_20",
+     "dataset": "credit",
+     "seed": 42,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_21",
+     "dataset": "credit",
+     "seed": 42,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_22",
+     "dataset": "credit",
+     "seed": 42,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_23",
+     "dataset": "credit",
+     "seed": 42,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_24",
+     "dataset": "credit",
+     "seed": 123,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_25",
+     "dataset": "credit",
+     "seed": 123,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_26",
+     "dataset": "credit",
+     "seed": 123,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_27",
+     "dataset": "credit",
+     "seed": 123,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_28",
+     "dataset": "credit",
+     "seed": 456,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_29",
+     "dataset": "credit",
+     "seed": 456,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_30",
+     "dataset": "credit",
+     "seed": 456,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_31",
+     "dataset": "credit",
+     "seed": 456,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_32",
+     "dataset": "compas",
+     "seed": 42,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_33",
+     "dataset": "compas",
+     "seed": 42,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_34",
+     "dataset": "compas",
+     "seed": 42,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_35",
+     "dataset": "compas",
+     "seed": 42,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_36",
+     "dataset": "compas",
+     "seed": 123,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_37",
+     "dataset": "compas",
+     "seed": 123,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_38",
+     "dataset": "compas",
+     "seed": 123,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_39",
+     "dataset": "compas",
+     "seed": 123,
+     "condition": "shift75"
+    },
+    {
+     "job": "571199_40",
+     "dataset": "compas",
+     "seed": 456,
+     "condition": "natural"
+    },
+    {
+     "job": "571199_41",
+     "dataset": "compas",
+     "seed": 456,
+     "condition": "equalized"
+    },
+    {
+     "job": "571199_42",
+     "dataset": "compas",
+     "seed": 456,
+     "condition": "shift50"
+    },
+    {
+     "job": "571199_43",
+     "dataset": "compas",
+     "seed": 456,
+     "condition": "shift75"
+    }
+   ]
+  }
+ ]
+}

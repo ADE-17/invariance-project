@@ -1,0 +1,13 @@
+{
+  "pathology": "Cardiomegaly",
+  "condition": "shift50",
+  "seed": 456,
+  "epochs": 30,
+  "batch": 32,
+  "lr": 0.0001,
+  "architecture": "DenseNet121",
+  "pretrained": true,
+  "image_size": 256,
+  "selection": "minimum validation BCE; patience 7 after epoch 10",
+  "smoke": false
+}

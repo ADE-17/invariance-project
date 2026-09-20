@@ -1,0 +1,10 @@
+{
+  "method": "raw_erm",
+  "index": 0,
+  "id": "00_raw_erm",
+  "seed": 123,
+  "pathology": "Cardiomegaly",
+  "condition": "shift50",
+  "smoke": false,
+  "utility_budget_relative_auroc_loss": 0.1
+}

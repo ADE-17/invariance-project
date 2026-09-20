@@ -1,0 +1,74 @@
+{
+  "dataset": "crime",
+  "rows": 1994,
+  "cohort_sha256": "021e1b3b025620d36a481ef0cfda33235e681bb7999dd3d1273f3013b9622bbc",
+  "preparation_code_sha256": "822b3e29eb25a1618eb95604a4568d453df53b9adee4e185c8ba24ab13817bec",
+  "mapping": {
+    "0": "racepctblack below median",
+    "1": "racepctblack at or above median"
+  },
+  "features": [
+    "x_med_income",
+    "x_pct_pop_under_pov",
+    "x_pct_unemployed",
+    "x_pct_fam2par",
+    "x_pct_not_hs_grad",
+    "x_pct_urban"
+  ],
+  "categorical_features": [],
+  "binned_features": {
+    "x_med_income": 5,
+    "x_pct_pop_under_pov": 5,
+    "x_pct_unemployed": 5,
+    "x_pct_fam2par": 5,
+    "x_pct_not_hs_grad": 5,
+    "x_pct_urban": 5
+  },
+  "feature_sets": {
+    "socio6": [
+      "x_med_income",
+      "x_pct_pop_under_pov",
+      "x_pct_unemployed",
+      "x_pct_fam2par",
+      "x_pct_not_hs_grad",
+      "x_pct_urban"
+    ],
+    "socio4": [
+      "x_med_income",
+      "x_pct_pop_under_pov",
+      "x_pct_unemployed",
+      "x_pct_fam2par"
+    ]
+  },
+  "conditions": [
+    "natural",
+    "equalized",
+    "shift50",
+    "shift75"
+  ],
+  "condition_seeds": {
+    "train": 4201,
+    "validation": 4202,
+    "probe_validation": 4203,
+    "test": 4204
+  },
+  "label": "violent crimes per population above median",
+  "unit": "community row",
+  "split_seed": 42,
+  "source": {
+    "file_sha256": "09e0b5c07eae24c1efab19b2edee05e160e7f5743b6f31e31eec3d73624da2ea",
+    "url": "https://archive.ics.uci.edu/dataset/183/communities+and+crime",
+    "label_threshold": 0.15,
+    "attribute_threshold": 0.06
+  },
+  "split_support": {
+    "probe_validation": 199,
+    "test": 400,
+    "train": 1196,
+    "validation": 199
+  },
+  "natural_group_prevalence": {
+    "0": 0.2709205020920502,
+    "1": 0.7071290944123314
+  }
+}

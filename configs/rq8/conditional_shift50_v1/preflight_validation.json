@@ -1,0 +1,16 @@
+{
+  "numerical_tests_passed": 6,
+  "cpu_end_to_end_smoke_passed": true,
+  "reference_calibration_splits": 120,
+  "reference_main_table_rows": 60,
+  "main_table_columns_verified": [
+    "dp",
+    "eodds",
+    "ece",
+    "max_group_ece",
+    "group0_calibration_bias_score",
+    "group1_calibration_bias_score"
+  ],
+  "gpu_smoke_status": "pending",
+  "production_status": "queued_after_gpu_smoke"
+}

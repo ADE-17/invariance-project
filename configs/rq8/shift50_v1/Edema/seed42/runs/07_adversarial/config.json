@@ -1,0 +1,12 @@
+{
+  "method": "adversarial",
+  "dim": 32,
+  "ratio": 0.3,
+  "index": 7,
+  "id": "07_adversarial",
+  "seed": 42,
+  "pathology": "Edema",
+  "condition": "shift50",
+  "smoke": false,
+  "utility_budget_relative_auroc_loss": 0.1
+}

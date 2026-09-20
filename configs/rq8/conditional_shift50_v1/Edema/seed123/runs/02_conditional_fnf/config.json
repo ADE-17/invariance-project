@@ -1,0 +1,14 @@
+{
+  "index": 1,
+  "id": "02_conditional_fnf",
+  "method": "conditional_fnf",
+  "dim": 8,
+  "gamma": 0.5,
+  "seed": 123,
+  "pathology": "Edema",
+  "condition": "shift50",
+  "smoke": false,
+  "utility_budget_relative_auroc_loss": 0.1,
+  "selection": "worst-label validation MMD",
+  "epochs": 60
+}

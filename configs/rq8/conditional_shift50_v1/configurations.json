@@ -1,0 +1,110 @@
+[
+  {
+    "index": 0,
+    "pathology": "Edema",
+    "seed": 42,
+    "gamma": 0.05
+  },
+  {
+    "index": 1,
+    "pathology": "Edema",
+    "seed": 42,
+    "gamma": 0.5
+  },
+  {
+    "index": 2,
+    "pathology": "Edema",
+    "seed": 42,
+    "gamma": 0.95
+  },
+  {
+    "index": 3,
+    "pathology": "Edema",
+    "seed": 123,
+    "gamma": 0.05
+  },
+  {
+    "index": 4,
+    "pathology": "Edema",
+    "seed": 123,
+    "gamma": 0.5
+  },
+  {
+    "index": 5,
+    "pathology": "Edema",
+    "seed": 123,
+    "gamma": 0.95
+  },
+  {
+    "index": 6,
+    "pathology": "Edema",
+    "seed": 456,
+    "gamma": 0.05
+  },
+  {
+    "index": 7,
+    "pathology": "Edema",
+    "seed": 456,
+    "gamma": 0.5
+  },
+  {
+    "index": 8,
+    "pathology": "Edema",
+    "seed": 456,
+    "gamma": 0.95
+  },
+  {
+    "index": 9,
+    "pathology": "Cardiomegaly",
+    "seed": 42,
+    "gamma": 0.05
+  },
+  {
+    "index": 10,
+    "pathology": "Cardiomegaly",
+    "seed": 42,
+    "gamma": 0.5
+  },
+  {
+    "index": 11,
+    "pathology": "Cardiomegaly",
+    "seed": 42,
+    "gamma": 0.95
+  },
+  {
+    "index": 12,
+    "pathology": "Cardiomegaly",
+    "seed": 123,
+    "gamma": 0.05
+  },
+  {
+    "index": 13,
+    "pathology": "Cardiomegaly",
+    "seed": 123,
+    "gamma": 0.5
+  },
+  {
+    "index": 14,
+    "pathology": "Cardiomegaly",
+    "seed": 123,
+    "gamma": 0.95
+  },
+  {
+    "index": 15,
+    "pathology": "Cardiomegaly",
+    "seed": 456,
+    "gamma": 0.05
+  },
+  {
+    "index": 16,
+    "pathology": "Cardiomegaly",
+    "seed": 456,
+    "gamma": 0.5
+  },
+  {
+    "index": 17,
+    "pathology": "Cardiomegaly",
+    "seed": 456,
+    "gamma": 0.95
+  }
+]

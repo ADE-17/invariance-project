@@ -1,0 +1,80 @@
+{
+  "dataset": "credit",
+  "rows": 30000,
+  "cohort_sha256": "d9e23453192efdfe00cd9d965d583d14b9cf6580d3b91ee13f7094797f7811af",
+  "preparation_code_sha256": "822b3e29eb25a1618eb95604a4568d453df53b9adee4e185c8ba24ab13817bec",
+  "mapping": {
+    "0": "Female",
+    "1": "Male"
+  },
+  "features": [
+    "x_education",
+    "x_marriage",
+    "x_age",
+    "x_pay_0",
+    "x_pay_2",
+    "x_limit_bal",
+    "x_bill_amt1",
+    "x_pay_amt1"
+  ],
+  "categorical_features": [
+    "x_education",
+    "x_marriage",
+    "x_pay_0",
+    "x_pay_2"
+  ],
+  "binned_features": {
+    "x_age": 5,
+    "x_limit_bal": 5,
+    "x_bill_amt1": 5,
+    "x_pay_amt1": 5
+  },
+  "feature_sets": {
+    "core5": [
+      "x_education",
+      "x_marriage",
+      "x_age",
+      "x_pay_0",
+      "x_limit_bal"
+    ],
+    "extended8": [
+      "x_education",
+      "x_marriage",
+      "x_age",
+      "x_pay_0",
+      "x_limit_bal",
+      "x_pay_2",
+      "x_bill_amt1",
+      "x_pay_amt1"
+    ]
+  },
+  "conditions": [
+    "natural",
+    "equalized",
+    "shift50",
+    "shift75"
+  ],
+  "condition_seeds": {
+    "train": 4201,
+    "validation": 4202,
+    "probe_validation": 4203,
+    "test": 4204
+  },
+  "label": "default payment next month",
+  "unit": "client row",
+  "split_seed": 42,
+  "source": {
+    "file_sha256": "7cfc3bb35b6986be40cccb5d490806f082b46f93afafdce27fd7f409eb5abb02",
+    "url": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients"
+  },
+  "split_support": {
+    "probe_validation": 3000,
+    "test": 6000,
+    "train": 18000,
+    "validation": 3000
+  },
+  "natural_group_prevalence": {
+    "0": 0.20776280918727916,
+    "1": 0.2416722745625841
+  }
+}

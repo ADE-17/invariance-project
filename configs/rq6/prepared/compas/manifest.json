@@ -1,0 +1,78 @@
+{
+  "dataset": "compas",
+  "rows": 5278,
+  "cohort_sha256": "49004ca2ab1a920e846ac2843e29934f6f1d2f37451c0f2e8a9afcd80b995e40",
+  "preparation_code_sha256": "822b3e29eb25a1618eb95604a4568d453df53b9adee4e185c8ba24ab13817bec",
+  "mapping": {
+    "0": "Caucasian",
+    "1": "African-American"
+  },
+  "features": [
+    "x_sex",
+    "x_age_cat",
+    "x_charge_degree",
+    "x_priors",
+    "x_juv_fel",
+    "x_juv_misd",
+    "x_juv_other"
+  ],
+  "categorical_features": [
+    "x_sex",
+    "x_age_cat",
+    "x_charge_degree",
+    "x_priors",
+    "x_juv_fel",
+    "x_juv_misd",
+    "x_juv_other"
+  ],
+  "binned_features": {},
+  "feature_sets": {
+    "paper7": [
+      "x_sex",
+      "x_age_cat",
+      "x_charge_degree",
+      "x_priors",
+      "x_juv_fel",
+      "x_juv_misd",
+      "x_juv_other"
+    ],
+    "paper7_nosex": [
+      "x_age_cat",
+      "x_charge_degree",
+      "x_priors",
+      "x_juv_fel",
+      "x_juv_misd",
+      "x_juv_other"
+    ]
+  },
+  "conditions": [
+    "natural",
+    "equalized",
+    "shift50",
+    "shift75"
+  ],
+  "condition_seeds": {
+    "train": 4201,
+    "validation": 4202,
+    "probe_validation": 4203,
+    "test": 4204
+  },
+  "label": "two-year recidivism",
+  "unit": "defendant row",
+  "split_seed": 42,
+  "source": {
+    "file_sha256": "c451db85908b2f7fef1d83203bedf6b71ecda0d5af468d82ae62178f91d0cc7d",
+    "url": "https://github.com/propublica/compas-analysis",
+    "rows_after_filter": 5278
+  },
+  "split_support": {
+    "probe_validation": 528,
+    "test": 1056,
+    "train": 3166,
+    "validation": 528
+  },
+  "natural_group_prevalence": {
+    "0": 0.3908701854493581,
+    "1": 0.5231496062992126
+  }
+}

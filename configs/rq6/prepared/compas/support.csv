@@ -1,0 +1,17 @@
+split,a,y,n
+probe_validation,0,0,116
+probe_validation,0,1,88
+probe_validation,1,0,137
+probe_validation,1,1,187
+test,0,0,249
+test,0,1,150
+test,1,0,341
+test,1,1,316
+train,0,0,794
+train,0,1,504
+train,1,0,867
+train,1,1,1001
+validation,0,0,122
+validation,0,1,80
+validation,1,0,169
+validation,1,1,157

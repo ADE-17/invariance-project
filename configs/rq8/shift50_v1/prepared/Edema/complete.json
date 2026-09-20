@@ -1,0 +1,18 @@
+{
+  "pathology": "Edema",
+  "condition": "shift50",
+  "raw_images": 223414,
+  "master_patients": 64533,
+  "label_policy": "U-ones; blank negative",
+  "partition_seed": 42,
+  "shift_seed": 20260914,
+  "shift_rule": "remove floor(n/2) female-positive images in each split",
+  "metadata_sha256": "b4bcd3d7942de23349bbe922a2389185d639cb06a24e700efb4980caae80b8e8",
+  "hashes": {
+    "train": "ae3c67b551f2a1a29ba9d8fa7d98c9033c5a66dc6c50b890804916f12ecb2498",
+    "validation": "401d645c51575cbe463c447768e27f070463236a573278f2edadc3dbea582343",
+    "selection": "26b2de2441bcb42300b9ead98214463c04104076510a57507ce221c9a0246af2",
+    "probe_validation": "de507cfcb1302fbcc585855f0a278f377f01bc5ac774c1738250a0b4b60ad9b4",
+    "test": "662763ab629a7788432f62b47eae73cc7927beb2ea5256f36b87a7be453a7969"
+  }
+}

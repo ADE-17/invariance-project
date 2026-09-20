@@ -1,0 +1,81 @@
+{
+  "dataset": "adult",
+  "rows": 48842,
+  "cohort_sha256": "6476886602beb140919acf5c10227f159a2cc4f438d676aa1d96c2db5b82a37f",
+  "preparation_code_sha256": "9947e30b7cd806f5d39ba0fce72cf2157246117583dc4fdc16c5a416ef7e2b0f",
+  "mapping": {
+    "0": "Female",
+    "1": "Male"
+  },
+  "features": [
+    "x_age",
+    "x_workclass",
+    "x_education",
+    "x_education_num",
+    "x_marital",
+    "x_occupation",
+    "x_relationship",
+    "x_race",
+    "x_capital_gain",
+    "x_capital_loss",
+    "x_hours",
+    "x_country"
+  ],
+  "categorical_features": [
+    "x_workclass",
+    "x_education",
+    "x_marital",
+    "x_occupation",
+    "x_relationship",
+    "x_race",
+    "x_country"
+  ],
+  "feature_sets": {
+    "paper6": [
+      "x_workclass",
+      "x_education",
+      "x_marital",
+      "x_occupation",
+      "x_relationship",
+      "x_race"
+    ],
+    "paper6_age": [
+      "x_workclass",
+      "x_education",
+      "x_marital",
+      "x_occupation",
+      "x_relationship",
+      "x_race",
+      "x_age"
+    ]
+  },
+  "conditions": [
+    "natural",
+    "equalized",
+    "shift50",
+    "shift75"
+  ],
+  "condition_seeds": {
+    "train": 4201,
+    "validation": 4202,
+    "probe_validation": 4203,
+    "test": 4204
+  },
+  "label": "income >50K",
+  "unit": "hashed feature row",
+  "split_seed": 42,
+  "source": {
+    "rq5_cohort_sha256": "8fb61ed7fdacdf8d9a21a434468b5c16ffea5fd7ecb00885589b2430a3eedb25",
+    "path": "/path/to/results/rq5/sweep_v2/prepared/adult"
+  },
+  "split_support": {
+    "probe_validation": 4885,
+    "test": 9765,
+    "train": 29312,
+    "validation": 4880
+  },
+  "natural_group_prevalence": {
+    "0": 0.10925148221343874,
+    "1": 0.3037672281776417
+  }
+}

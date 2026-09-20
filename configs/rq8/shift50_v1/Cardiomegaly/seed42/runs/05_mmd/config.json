@@ -1,0 +1,12 @@
+{
+  "method": "mmd",
+  "dim": 2,
+  "ratio": 0.3,
+  "index": 5,
+  "id": "05_mmd",
+  "seed": 42,
+  "pathology": "Cardiomegaly",
+  "condition": "shift50",
+  "smoke": false,
+  "utility_budget_relative_auroc_loss": 0.1
+}

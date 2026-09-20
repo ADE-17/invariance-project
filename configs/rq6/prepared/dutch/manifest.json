@@ -1,0 +1,83 @@
+{
+  "dataset": "dutch",
+  "rows": 60420,
+  "cohort_sha256": "948628f8d8d4c999cce48b6fdf7a13d7db1d4dc5eecc6b231d2ea29d8c2d20d1",
+  "preparation_code_sha256": "822b3e29eb25a1618eb95604a4568d453df53b9adee4e185c8ba24ab13817bec",
+  "mapping": {
+    "0": "Female",
+    "1": "Male"
+  },
+  "features": [
+    "x_age",
+    "x_edu_level",
+    "x_economic_status",
+    "x_cur_eco_activity",
+    "x_marital_status",
+    "x_household_position",
+    "x_household_size",
+    "x_citizenship",
+    "x_country_birth",
+    "x_prev_residence_place"
+  ],
+  "categorical_features": [
+    "x_age",
+    "x_edu_level",
+    "x_economic_status",
+    "x_cur_eco_activity",
+    "x_marital_status",
+    "x_household_position",
+    "x_household_size",
+    "x_citizenship",
+    "x_country_birth",
+    "x_prev_residence_place"
+  ],
+  "binned_features": {},
+  "feature_sets": {
+    "core6": [
+      "x_age",
+      "x_edu_level",
+      "x_economic_status",
+      "x_cur_eco_activity",
+      "x_marital_status",
+      "x_household_position"
+    ],
+    "core6_hh": [
+      "x_age",
+      "x_edu_level",
+      "x_economic_status",
+      "x_cur_eco_activity",
+      "x_marital_status",
+      "x_household_position",
+      "x_household_size"
+    ]
+  },
+  "conditions": [
+    "natural",
+    "equalized",
+    "shift50",
+    "shift75"
+  ],
+  "condition_seeds": {
+    "train": 4201,
+    "validation": 4202,
+    "probe_validation": 4203,
+    "test": 4204
+  },
+  "label": "high-level occupation",
+  "unit": "census record row",
+  "split_seed": 42,
+  "source": {
+    "file_sha256": "c0e1df7e2ca07fa84aa99b5565c7b782a381e2fab377648a6d920174d04ce090",
+    "url": "https://github.com/tailequy/fairness_dataset (dutch.csv)"
+  },
+  "split_support": {
+    "probe_validation": 6042,
+    "test": 12084,
+    "train": 36252,
+    "validation": 6042
+  },
+  "natural_group_prevalence": {
+    "0": 0.32712317907045885,
+    "1": 0.6256012206853087
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "method": "fnf",
+  "dim": 8,
+  "gamma": 0.95,
+  "index": 3,
+  "id": "03_fnf",
+  "seed": 456,
+  "pathology": "Edema",
+  "condition": "shift50",
+  "smoke": false,
+  "utility_budget_relative_auroc_loss": 0.1
+}

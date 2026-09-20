@@ -1,0 +1,7 @@
+{
+  "pathology": "Cardiomegaly",
+  "seed": 42,
+  "elapsed_seconds": 44500.49599003792,
+  "failures": [],
+  "expected_configurations": 10
+}

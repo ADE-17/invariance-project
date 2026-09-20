@@ -1,0 +1,18 @@
+{
+  "pathology": "Cardiomegaly",
+  "condition": "shift50",
+  "raw_images": 223414,
+  "master_patients": 64533,
+  "label_policy": "U-ones; blank negative",
+  "partition_seed": 42,
+  "shift_seed": 20260914,
+  "shift_rule": "remove floor(n/2) female-positive images in each split",
+  "metadata_sha256": "b4bcd3d7942de23349bbe922a2389185d639cb06a24e700efb4980caae80b8e8",
+  "hashes": {
+    "train": "755ed1ac54d156e0df71fee105df379e4954e9a8503b529d927b7c20a2fe8033",
+    "validation": "fb26c68ec8e2dde91f6fab0f48024f24d7efbdcfdef1ebb64bea16bf7f4e1784",
+    "selection": "bc4727c9a606421d1140d5453ed6eafbabe70363ef6e53bf461afe55caaa721c",
+    "probe_validation": "e74b8e4cf5e5a75141679892fba5b89b0320b852508f107a64e4e07c510acbf0",
+    "test": "fee375d3d9db02fb28b46502524b761b3fac1d3a19a64315dfdfe5db81e5838f"
+  }
+}

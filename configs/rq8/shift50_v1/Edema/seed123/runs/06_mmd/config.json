@@ -1,0 +1,12 @@
+{
+  "method": "mmd",
+  "dim": 2,
+  "ratio": 1.0,
+  "index": 6,
+  "id": "06_mmd",
+  "seed": 123,
+  "pathology": "Edema",
+  "condition": "shift50",
+  "smoke": false,
+  "utility_budget_relative_auroc_loss": 0.1
+}

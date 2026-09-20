@@ -1,0 +1,149 @@
+{
+  "datasets": [
+    "adult",
+    "health",
+    "compas",
+    "lawschool",
+    "crime",
+    "dutch",
+    "credit"
+  ],
+  "seeds": [
+    42,
+    123,
+    456
+  ],
+  "conditions": [
+    "natural",
+    "equalized",
+    "shift50",
+    "shift75"
+  ],
+  "shards": 84,
+  "runs_per_shard": {
+    "adult": 30,
+    "health": 42,
+    "compas": 30,
+    "lawschool": 30,
+    "crime": 30,
+    "dutch": 30,
+    "credit": 30
+  },
+  "total_fits": 2664,
+  "test_variants": [
+    "test_natural",
+    "test_equalized",
+    "test_shift50",
+    "test_shift75"
+  ],
+  "continuous": {
+    "gammas": [
+      0.0,
+      0.05,
+      0.1,
+      0.5,
+      0.95
+    ],
+    "priors": [
+      "gmm",
+      "flow"
+    ],
+    "n_blocks": [
+      4,
+      6
+    ],
+    "epochs": 80,
+    "batch_size": 256,
+    "lr": 0.001,
+    "weight_decay": 0.0,
+    "flow_hidden": [
+      100,
+      100,
+      50
+    ],
+    "clf_hidden": [
+      100,
+      50,
+      20
+    ],
+    "kl_start": 0,
+    "kl_end": 10,
+    "alpha": 0.05,
+    "grad_clip": 10.0,
+    "log_every": 10,
+    "prior_flow_hidden": [
+      50,
+      50
+    ],
+    "prior_flow_blocks": 4,
+    "prior_epochs": 80,
+    "gmm_components": 4,
+    "adversary_hidden": [
+      50,
+      50
+    ],
+    "adversary_epochs": 80,
+    "adversary_lr": 0.01,
+    "adversary_weight_decay": 0.0
+  },
+  "categorical": {
+    "gammas": [
+      0.0,
+      0.02,
+      0.1,
+      0.2,
+      0.5,
+      0.9,
+      1.0
+    ],
+    "made_hidden": [
+      50,
+      100
+    ],
+    "made_epochs": 100,
+    "clf_epochs": 100,
+    "clf_hidden": [
+      20
+    ],
+    "clf_lr": 0.001,
+    "clf_weight_decay": 0.0001,
+    "age_bins": 4,
+    "adversary_hidden": [
+      30,
+      30
+    ],
+    "adversary_epochs": 60,
+    "adversary_lr": 0.01,
+    "adversary_weight_decay": 0.001
+  },
+  "checkpoint_policy": "final epoch (paper protocol); full validation history saved",
+  "shift": "shiftXX removes XX% of A=0,Y=1 rows from train/validation/probe_validation with fixed seeds; equalized subsamples the higher-prevalence group to the lower group rate; test variants built identically on the natural test split",
+  "probe_families": [
+    "linear",
+    "tree",
+    "mlp0",
+    "mlp1",
+    "mlp2"
+  ],
+  "bootstrap_replicates": 1000,
+  "gate": "corrected oriented upper AUROC <= .55",
+  "encoding_requires_sensitive_attribute": true,
+  "scope": "Empirical pilot; no guarantee of achieved independence; FNF bounds hold only for the estimated priors",
+  "limitations": [
+    "Three seeds measure fitting variability on fixed splits.",
+    "Adult has a natural base-rate gap; equalized removes it by subsampling.",
+    "Health label derives from claim-level Charlson codes; Charlson is not a feature.",
+    "Health feature dimensionality (core/extended) tests prior estimation difficulty; both are study variants.",
+    "Categorical Adult follows the paper: continuous attributes are dropped or quantile-binned.",
+    "Probes establish family-limited decodability, not statistical independence."
+  ],
+  "sources": [
+    "https://arxiv.org/abs/2106.05937",
+    "https://github.com/eth-sri/fnf",
+    "https://github.com/truongkhanhduy95/Heritage-Health-Prize (HHP release 3 mirror)",
+    "https://archive.ics.uci.edu/dataset/2/adult"
+  ],
+  "automated_reports": false,
+  "automatic_plots": false,
+  "max_concurrent_gpus": 6
+}
